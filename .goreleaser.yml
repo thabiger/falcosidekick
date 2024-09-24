@@ -55,10 +55,8 @@ dockers:
     dockerfile: Dockerfile
     use: buildx
     image_templates:
-      - "falcosecurity/falcosidekick:stable-amd64"
-      - "falcosecurity/falcosidekick:{{ .Version }}-amd64"
-      - "public.ecr.aws/falcosecurity/falcosidekick:stable-amd64"
-      - "public.ecr.aws/falcosecurity/falcosidekick:{{ .Version }}-amd64"
+      - "thabiger/falcosidekick:stable-amd64"
+      - "thabiger/falcosidekick:{{ .Version }}-amd64"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"
@@ -74,10 +72,8 @@ dockers:
     dockerfile: Dockerfile
     use: buildx
     image_templates:
-      - "falcosecurity/falcosidekick:stable-arm64"
-      - "falcosecurity/falcosidekick:{{ .Version }}-arm64"
-      - "public.ecr.aws/falcosecurity/falcosidekick:stable-arm64"
-      - "public.ecr.aws/falcosecurity/falcosidekick:{{ .Version }}-arm64"
+      - "thabiger/falcosidekick:stable-arm64"
+      - "thabiger/falcosidekick:{{ .Version }}-arm64"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"
@@ -94,10 +90,8 @@ dockers:
     dockerfile: Dockerfile
     use: buildx
     image_templates:
-      - "falcosecurity/falcosidekick:stable-armv7"
-      - "falcosecurity/falcosidekick:{{ .Version }}-armv7"
-      - "public.ecr.aws/falcosecurity/falcosidekick:stable-armv7"
-      - "public.ecr.aws/falcosecurity/falcosidekick:{{ .Version }}-armv7"
+      - "thabiger/falcosidekick:stable-armv7"
+      - "thabiger/falcosidekick:{{ .Version }}-armv7"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"
@@ -109,26 +103,16 @@ dockers:
       - LICENSE
 
 docker_manifests:
-  - name_template: 'falcosecurity/falcosidekick:stable'
+  - name_template: 'thabiger/falcosidekick:stable'
     image_templates:
-      - 'falcosecurity/falcosidekick:stable-amd64'
-      - 'falcosecurity/falcosidekick:stable-arm64'
-      - 'falcosecurity/falcosidekick:stable-armv7'
-  - name_template: 'falcosecurity/falcosidekick:{{ .Version }}'
+      - 'thabiger/falcosidekick:stable-amd64'
+      - 'thabiger/falcosidekick:stable-arm64'
+      - 'thabiger/falcosidekick:stable-armv7'
+  - name_template: 'thabiger/falcosidekick:{{ .Version }}'
     image_templates:
-      - 'falcosecurity/falcosidekick:{{ .Version }}-amd64'
-      - 'falcosecurity/falcosidekick:{{ .Version }}-arm64'
-      - 'falcosecurity/falcosidekick:{{ .Version }}-armv7'
-  - name_template: 'public.ecr.aws/falcosecurity/falcosidekick:stable'
-    image_templates:
-      - 'public.ecr.aws/falcosecurity/falcosidekick:stable-amd64'
-      - 'public.ecr.aws/falcosecurity/falcosidekick:stable-arm64'
-      - 'public.ecr.aws/falcosecurity/falcosidekick:stable-armv7'
-  - name_template: 'public.ecr.aws/falcosecurity/falcosidekick:{{ .Version }}'
-    image_templates:
-      - 'public.ecr.aws/falcosecurity/falcosidekick:{{ .Version }}-amd64'
-      - 'public.ecr.aws/falcosecurity/falcosidekick:{{ .Version }}-arm64'
-      - 'public.ecr.aws/falcosecurity/falcosidekick:{{ .Version }}-armv7'
+      - 'thabiger/falcosidekick:{{ .Version }}-amd64'
+      - 'thabiger/falcosidekick:{{ .Version }}-arm64'
+      - 'thabiger/falcosidekick:{{ .Version }}-armv7'
 
 signs:
   - id: falcosidekick
@@ -151,8 +135,3 @@ docker_signs:
     artifacts: manifests
     output: true
 
-release:
-  github:
-    owner: falcosecurity
-    name: falcosidekick
-  prerelease: auto
