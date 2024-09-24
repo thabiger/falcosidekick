@@ -481,4 +481,8 @@ func forwardEvent(falcopayload types.FalcoPayload) {
 	if config.Talon.Address != "" && (falcopayload.Priority >= types.Priority(config.Talon.MinimumPriority) || falcopayload.Rule == testRule) {
 		go talonClient.TalonPost(falcopayload)
 	}
+
+	if config.Logstash.Address != "" && (falcopayload.Priority >= types.Priority(config.Logstash.MinimumPriority) || falcopayload.Rule == testRule) {
+		go logstashClient.LogstashPost(falcopayload)
+	}
 }

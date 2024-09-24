@@ -80,6 +80,7 @@ var (
 	dynatraceClient     *outputs.Client
 	otlpClient          *outputs.Client
 	talonClient         *outputs.Client
+	logstashClient      *outputs.Client
 
 	statsdClient, dogstatsdClient *statsd.Client
 	config                        *types.Configuration
@@ -747,6 +748,16 @@ func init() {
 			config.Redis.Address = ""
 		} else {
 			outputs.EnabledOutputs = append(outputs.EnabledOutputs, "Redis")
+		}
+	}
+
+	if config.Logstash.Address != "" {
+		var err error
+		logstashClient, err = outputs.NewLogstashClient(config, stats, promStats, statsdClient, dogstatsdClient)
+		if err != nil {
+			config.Logstash.Address = ""
+		} else {
+			outputs.EnabledOutputs = append(outputs.EnabledOutputs, "Logstash")
 		}
 	}
 

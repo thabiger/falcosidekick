@@ -399,6 +399,17 @@ var outputDefaults = map[string]map[string]any{
 		"MinimumPriority": "",
 		"CheckCert":       true,
 	},
+	"Logstash": {
+		"Address":         "",
+		"Port":            5044,
+		"Password":        "",
+		"MinimumPriority": "",
+		"MutualTLS":       false,
+		"CheckCert":       false,
+		"CertFile":        "",
+		"KeyFile":         "",
+		"CaCertFile":      "",
+	},
 }
 
 func init() {
@@ -872,6 +883,7 @@ func getConfig() *types.Configuration {
 	c.Dynatrace.MinimumPriority = checkPriority(c.Dynatrace.MinimumPriority)
 	c.SumoLogic.MinimumPriority = checkPriority(c.SumoLogic.MinimumPriority)
 	c.Talon.MinimumPriority = checkPriority(c.Talon.MinimumPriority)
+	c.Logstash.MinimumPriority = checkPriority(c.Logstash.MinimumPriority)
 
 	c.Slack.MessageFormatTemplate = getMessageFormatTemplate("Slack", c.Slack.MessageFormat)
 	c.Rocketchat.MessageFormatTemplate = getMessageFormatTemplate("Rocketchat", c.Rocketchat.MessageFormat)

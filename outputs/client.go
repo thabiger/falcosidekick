@@ -39,6 +39,7 @@ import (
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	timescaledb "github.com/jackc/pgx/v5/pgxpool"
 	redis "github.com/redis/go-redis/v9"
+	logstash "github.com/telkomdev/go-stash"
 
 	"github.com/falcosecurity/falcosidekick/internal/pkg/batcher"
 	"github.com/falcosecurity/falcosidekick/types"
@@ -123,6 +124,7 @@ type Client struct {
 	MQTTClient        mqtt.Client
 	TimescaleDBClient *timescaledb.Pool
 	RedisClient       *redis.Client
+	LogstashClient    *logstash.Stash
 
 	// Enable gzip compression
 	EnableCompression bool
