@@ -114,6 +114,7 @@ Follow the links to get the configuration of each output.
 - [**OpenObserve**](https://github.com/falcosecurity/falcosidekick/blob/master/docs/outputs/openobserve.md)
 - [**SumoLogic**](https://github.com/falcosecurity/falcosidekick/blob/master/docs/outputs/sumologic.md)
 - [**Quickwit**](https://github.com/falcosecurity/falcosidekick/blob/master/docs/outputs/quickwit.md)
+- [**Logstash**](https://github.com/falcosecurity/falcosidekick/blob/master/docs/outputs/logstash.md)
 
 ### Object Storage
 
