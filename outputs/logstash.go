@@ -83,10 +83,9 @@ func NewLogstashClient(config *types.Configuration, stats *types.Statistics, pro
 		}
 
 		tlsCfg = &tls.Config{
-			MinVersion:         tls.VersionTLS12,
-			Certificates:       []tls.Certificate{cert},
-			RootCAs:            pool,
-			InsecureSkipVerify: true,
+			MinVersion:   tls.VersionTLS12,
+			Certificates: []tls.Certificate{cert},
+			RootCAs:      pool,
 		}
 		tlsCfg.RootCAs.AppendCertsFromPEM(caCert)
 
@@ -94,7 +93,7 @@ func NewLogstashClient(config *types.Configuration, stats *types.Statistics, pro
 		// The check cert flag and mutual tls are mutually exclusive
 		if !config.Logstash.CheckCert {
 			tlsCfg = &tls.Config{
-				InsecureSkipVerify: true,
+				InsecureSkipVerify: true, // #nosec G402 This is only set as a result of explicit configuration
 			}
 		}
 	}
