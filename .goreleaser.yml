@@ -135,8 +135,3 @@ docker_signs:
     artifacts: manifests
     output: true
 
-release:
-  github:
-    owner: falcosecurity
-    name: falcosidekick
-  prerelease: auto
