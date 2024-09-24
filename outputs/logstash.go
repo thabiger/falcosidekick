@@ -83,10 +83,9 @@ func NewLogstashClient(config *types.Configuration, stats *types.Statistics, pro
 		}
 
 		tlsCfg = &tls.Config{
-			MinVersion:         tls.VersionTLS12,
-			Certificates:       []tls.Certificate{cert},
-			RootCAs:            pool,
-			InsecureSkipVerify: true,
+			MinVersion:   tls.VersionTLS12,
+			Certificates: []tls.Certificate{cert},
+			RootCAs:      pool,
 		}
 		tlsCfg.RootCAs.AppendCertsFromPEM(caCert)
 
