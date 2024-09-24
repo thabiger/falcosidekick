@@ -117,6 +117,7 @@ type Configuration struct {
 	Dynatrace          DynatraceOutputConfig
 	OTLP               OTLPOutputConfig
 	Talon              TalonOutputConfig
+	Logstash           LogstashConfig
 }
 
 // InitClientArgs represent a client parameters for initialization
@@ -807,6 +808,19 @@ type TalonOutputConfig struct {
 	MinimumPriority string
 }
 
+// LogstashConfig represents config parameters for Logstash
+type LogstashConfig struct {
+	Address         string
+	Port            uint64
+	MinimumPriority string
+	CheckCert       bool
+	TLS             bool
+	MutualTLS       bool
+	CertFile        string
+	KeyFile         string
+	CaCertFile      string
+}
+
 // Statistics is a struct to store stastics
 type Statistics struct {
 	Requests          *expvar.Map
@@ -877,6 +891,7 @@ type Statistics struct {
 	Dynatrace         *expvar.Map
 	OTLPTraces        *expvar.Map
 	Talon             *expvar.Map
+	Logstash          *expvar.Map
 }
 
 // PromStatistics is a struct to store prometheus metrics
