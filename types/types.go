@@ -819,6 +819,7 @@ type LogstashConfig struct {
 	CertFile        string
 	KeyFile         string
 	CaCertFile      string
+	Tags            []string
 }
 
 // Statistics is a struct to store stastics

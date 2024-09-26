@@ -558,3 +558,4 @@ logstash:
   #keyfile: "" # Use this key file instead of the client certificate when using mutual TLS (default: "")
   #cacertfile: "" # Use this CA certificate file instead of the client certificate when using mutual TLS (default: "")
   #minimumpriority: minimum priority of event for using this output, order is emergency|alert|critical|error|warning|notice|informational|debug or "" (default: "debug")
+  #tags: ["falco"] # An additional list of tags that will be added to those produced by Falco (default: [])

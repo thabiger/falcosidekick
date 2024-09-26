@@ -125,6 +125,7 @@ func (c *Client) LogstashPost(falcopayload types.FalcoPayload) {
 	falcopayload.OutputFields = replaceKeysWithIndexes(falcopayload.OutputFields)
 
 	logstashPayload, _ := json.Marshal(falcopayload)
+	falcopayload.Tags = append(falcopayload.Tags, c.Config.Logstash.Tags...)
 
 	n, err := c.LogstashClient.Write(logstashPayload)
 	if err != nil {

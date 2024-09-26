@@ -25,6 +25,7 @@
 | `logstash.keyfile`         | `LOGSTASH_KEYFILE`         |                  | Use this key file instead of the client certificate when using mutual TLS                                                           |
 | `logstash.cacertfile`      | `LOGSTASH_CACERTFILE`      |                  | Use this CA certificate file instead of the client certificate when using mutual TLS                                                |
 | `logstash.minimumpriority` | `LOGSTASH_MINIMUMPRIORITY` | `""` (= `debug`) | Minimum priority of event for using this output, order is `emergency,alert,critical,error,warning,notice,informational,debug or ""` |
+| `logstash.tags`            | `LOGSTASH_TAGS`            |                  | An additional list of tags that will be added to those produced by Falco; these tags may help in decision-making while routing logs |
 
 > [!NOTE]
 The Env var values override the settings from yaml file.
@@ -42,6 +43,7 @@ logstash:
   #keyfile: "" # Use this key file instead of the client certificate when using mutual TLS (default: "")
   #cacertfile: "" # Use this CA certificate file instead of the client certificate when using mutual TLS (default: "")
   #minimumpriority: minimum priority of event for using this output, order is emergency|alert|critical|error|warning|notice|informational|debug or "" (default: "debug")
+  #tags: ["falco"] # An additional list of tags that will be added to those produced by Falco (default: [])
 ```
 
 ## Additional info
