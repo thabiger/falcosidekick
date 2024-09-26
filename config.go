@@ -409,6 +409,7 @@ var outputDefaults = map[string]map[string]any{
 		"CertFile":        "",
 		"KeyFile":         "",
 		"CaCertFile":      "",
+		"Tags":            []string{},
 	},
 }
 
